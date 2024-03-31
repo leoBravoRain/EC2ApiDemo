@@ -13,7 +13,8 @@ app.get("/", (req, res) => {
     (err, data) => {
       if (err) {
         console.error("Error fetching instance metadata:", err);
-        res.status(500).send("Error fetching instance metadata");
+        // res.status(500).send("Error fetching instance metadata");
+        res.status(500).json(err);
       } else {
         const availabilityZone = data.toString();
         console.log("availabilty zone: ", availabilityZone);
