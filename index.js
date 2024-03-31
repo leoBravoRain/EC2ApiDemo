@@ -7,6 +7,7 @@ const AWS = require("aws-sdk");
 const ec2Metadata = new AWS.MetadataService();
 
 app.get("/", (req, res) => {
+  console.log("trying to access availability zone");
   ec2Metadata.request(
     "/latest/meta-data/placement/availability-zone",
     (err, data) => {
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
         res.status(500).send("Error fetching instance metadata");
       } else {
         const availabilityZone = data.toString();
+        console.log("availabilty zone: ", availabilityZone);
         res.send(`Instance is in Availability Zone: ${availabilityZone}`);
       }
     }
