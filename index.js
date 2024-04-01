@@ -27,19 +27,19 @@ app.get("/", (req, res) => {
     //     }
     // });
 
-    http.get('http://169.254.169.254/latest/meta-data/', (res) => {
-        let data = '';
-
-        res.on('data', (chunk) => {
-            data += chunk;
-        });
-
-        res.on('end', () => {
-            console.log('EC2 Instance Metadata:', data);
-        });
-    }).on('error', (err) => {
-        console.error('Error fetching EC2 instance metadata:', err);
-    });
+    // http.get('http://169.254.169.254/latest/meta-data/', (res) => {
+    //     let data = '';
+    //
+    //     res.on('data', (chunk) => {
+    //         data += chunk;
+    //     });
+    //
+    //     res.on('end', () => {
+    //         console.log('EC2 Instance Metadata:', data);
+    //     });
+    // }).on('error', (err) => {
+    //     console.error('Error fetching EC2 instance metadata:', err);
+    // });
 
 });
 
